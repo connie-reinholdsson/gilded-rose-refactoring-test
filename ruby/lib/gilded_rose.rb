@@ -14,14 +14,20 @@ class GildedRose
       exceptions.include?(item.name) ? true : false
   end
 
+  def aged_brie(item)
+    if item.quality < 50 && item.quality >= 0
+      item.quality += 1
+    end
+  end
+
   def exception(item)
     case item.name
-    when "Aged brie"
-      aged_brie
+    when "Aged Brie"
+      aged_brie(item)
     when "Backstage passes to a TAFKAL80ETC concert"
-      backstage
+      backstage(item)
     when "Sulfuras, Hand of Ragnaros"
-      sulfuras
+      sulfuras(item)
     end
   end
 
@@ -30,7 +36,9 @@ class GildedRose
   end
 
   def conjured(item)
-    item.quality -= 2
+    if above_minimum_quality?(item)
+      item.quality -= 2
+    end
   end
 
   def above_minimum_quality?(item)

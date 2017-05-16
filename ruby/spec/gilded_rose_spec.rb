@@ -44,13 +44,19 @@ let (:aged_brie) { double :aged_brie}
       end
     end
 
-
     describe "#exception?" do
     it "should return true if the item is part of the exceptions list" do
       brie = Item.new("Aged Brie", 10, 15)
       example = GildedRose.new([brie])
       expect(example.exception?(brie)).to eq true
+    end
   end
-end
 
+  describe "#aged_brie" do
+    it "quality should increase by 1 unit if below maximum quality" do
+      brie = Item.new("Aged Brie", 10, 15)
+      GildedRose.new([brie]).update_quality
+      expect(brie.quality).to eq 16
+    end
+  end
 end
