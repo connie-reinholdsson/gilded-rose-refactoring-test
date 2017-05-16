@@ -4,13 +4,18 @@ class GildedRose
     @items = items
   end
 
+
+  def exception?(item)
+    exceptions = ["Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"]
+      exceptions.include?(item.name) ? true : false
+  end
+
+
   def update_quality()
     @items.each do |item|
-      if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
+      if !exception?(item)
         if item.quality > 0
-          if item.name != "Sulfuras, Hand of Ragnaros"
             item.quality = item.quality - 1
-          end
         end
       else
         if item.quality < 50
@@ -52,6 +57,9 @@ class GildedRose
     end
   end
 end
+
+
+
 
 class Item
   attr_accessor :name, :sell_in, :quality
