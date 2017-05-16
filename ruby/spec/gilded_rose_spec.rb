@@ -3,6 +3,7 @@ require 'gilded_rose'
 describe GildedRose do
 
 subject(:gilded_rose) { described_class.new()}
+let (:aged_brie) { double :aged_brie}
 
   describe "#update_quality"
     context 'normal items' do

@@ -10,10 +10,21 @@ class GildedRose
       exceptions.include?(item.name) ? true : false
   end
 
+  def exception(item)
+    case item.name
+    when "Aged brie"
+      aged_brie
+    when "Backstage passes to a TAFKAL80ETC concert"
+      backstage
+    when "Sulfuras, Hand of Ragnaros"
+      sulfuras
+    end
+  end
 
   def update_quality()
     @items.each do |item|
-      if !exception?(item)
+      if exception?(item)
+          exception
         if item.quality > 0
             item.quality = item.quality - 1
         end
