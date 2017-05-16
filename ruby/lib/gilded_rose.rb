@@ -30,9 +30,10 @@ class GildedRose
   end
 
   def conjured(item)
+    item.quality -= 2
   end
 
-  def minimum_quality?(item)
+  def above_minimum_quality?(item)
     true if item.quality > MINIMUM_QUALITY
   end
 
@@ -41,17 +42,17 @@ class GildedRose
   end
 
   def normal_item(item)
-    if minimum_quality?(item) && !sell_date_passed?(item)
-        item.quality = item.quality - 1
-    elsif minimum_quality?(item) && sell_date_passed?(item)
-        item.quality = item.quality - 2
+    if above_minimum_quality?(item) && !sell_date_passed?(item)
+        item.quality -= 1
+    elsif above_minimum_quality?(item) && sell_date_passed?(item)
+        item.quality -= 2
     end
   end
 
 
   def update_quality()
     @items.each do |item|
-      item.sell_in = item.sell_in - 1
+      item.sell_in -= 1
       if exception?(item)
           exception(item)
       elsif conjured?(item)
@@ -65,8 +66,6 @@ class GildedRose
 end
 
 
-
-#
 #         if item.quality < 50
 #           item.quality = item.quality + 1
 #           if item.name == "Backstage passes to a TAFKAL80ETC concert"
