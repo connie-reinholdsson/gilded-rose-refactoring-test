@@ -1,3 +1,36 @@
+# Welcome to my Gilded Rose Refactoring Kata!
+
+In this repo I've cloned this Gilded Rose Refactoring Kata and refactored it. I've chosen to do this in Ruby and all the changes will therefore sit under directory labelled 'Ruby'.
+
+### Technologies:
+- Ruby (version 2.4.0)
+- RSpec (version 3.6.0)
+
+### Introduction
+*"Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city run by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that we can begin selling a new category of items. First an introduction to our system:
+
+All items have a SellIn value which denotes the number of days we have to sell the item. All items have a Quality value which denotes how valuable the item is. At the end of each day our system lowers both values for every item. Pretty simple, right? Well this is where it gets interesting:*
+
+
+### Key requirements:
+- All items have a SellIn value (the number of days an item can be sold)
+- All items have a Quality value (how valuable each item is)
+- Once the sell by date has passed, qualtity decreases twice as fast
+- The Quality of an item cannot be negative
+- The Quality maximum value is 50
+- "Aged Brie" increases in quality the older it gets
+- "Sulfuras" is an exception: It has never has to be sold and it doesn't decrease in quality
+- "Backstage passes" increases in Quality as it's SellIn value approaches. Quality increases by 2 when there are 10 days or less, and by 3 when there are 5 days or less left. But Quality drops to 0 after that date.
+- "Conjured" items decrease in Quality twice as fast as normal items.
+- Changes can be made to the UpdateQuality method and Items property statistic, however no changes can be made to the Item class or Items property.
+
+### Deployment instructions:
+1. Navigate to your projects directory
+2. Run ```git clone https://github.com/connie-reinholdsson/gilded-rose-refactoring-tech-test.git```
+3. Run ```cd gilded-rose-refactoring-test```
+4. Run ```cd ruby```
+
+## Original README:
 # Gilded Rose Refactoring Kata
 
 This Kata was originally created by Terry Hughes (http://twitter.com/#!/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
@@ -18,7 +51,7 @@ You could write some unit tests yourself, using the requirements to identify sui
 
 Alternatively, use the "Text-Based" tests provided in this repository. (Read more about that in the next section)
 
-Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design. 
+Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design.
 
 ## Text-Based Approval Testing
 
@@ -46,4 +79,4 @@ I've also set this kata up on [cyber-dojo](http://cyber-dojo.org) for several la
 
 I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/)
