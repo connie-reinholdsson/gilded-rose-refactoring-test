@@ -59,4 +59,33 @@ let (:aged_brie) { double :aged_brie}
       expect(brie.quality).to eq 16
     end
   end
+
+  describe "#sulfuras" do
+    it "has no sell in date and quality does not decrease" do
+      sulfuras = Item.new("Sulfuras, Hand of Ragnaros", 0, 30)
+      GildedRose.new([sulfuras]).update_quality
+      expect(sulfuras.sell_in).to eq 0
+      expect(sulfuras.quality).to eq 30
+    end
+  end
+
+  describe "#backstage_passes" do
+    it "increases in quality by 2 units when sell in days are 10 days or less" do
+      backstage = Item.new("Backstage passes to a TAFKAL80ETC concert", 11, 15)
+      GildedRose.new([backstage]).update_quality
+      expect(backstage.quality).to eq 17
+    end
+
+    it "increases in quality by 3 units when sell in days are 5 days or less" do
+      backstage = Item.new("Backstage passes to a TAFKAL80ETC concert", 6, 15)
+      GildedRose.new([backstage]).update_quality
+      expect(backstage.quality).to eq 18
+    end
+
+    it "quality drops to 0 units when sell in days is 0" do
+      backstage = Item.new("Backstage passes to a TAFKAL80ETC concert", 1, 30)
+      GildedRose.new([backstage]).update_quality
+      expect(backstage.quality).to eq 0
+    end
+  end
 end
